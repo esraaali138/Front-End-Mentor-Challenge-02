@@ -9,26 +9,22 @@
 
 .main {
   background: $mainColor;
-  @include layout(700px,400px,10px);
+  @include layout(700px, 400px, 10px);
   padding: 10px;
   @include flexbox(null, row, space-between);
   .sidebar {
     background: $sidebarImg no-repeat;
     background-size: cover;
-    height: 380px;
-    width: 30%;
+    @include layout(380px, 30%, 8px);
     padding: 20px;
-    border-radius: 8px;
     &__content {
       @include flexbox(20px, column, center);
       &-step {
         @include flexbox(10px);
         &-number {
-          width: 30px;
-          height: 30px;
+          @include layout(30px, 30px, 50%);
           border: 1px solid $mainColor;
           color: $mainColor;
-          border-radius: 50%;
           text-align: center;
           line-height: 30px;
         }
