@@ -1,0 +1,18 @@
+@import "./variables";
+@import "./base";
+@import "./mixins";
+@import "./reset";
+@import "./utilities";
+
+body {
+    margin: 0;
+    background:$colorBody;
+}
+
+// p {
+//     font-weight: map-get($font-weights, bold);
+//     color: map-get($font-colors, primary);
+// }
+p{
+    color: rgb(151, 134, 134);
+}

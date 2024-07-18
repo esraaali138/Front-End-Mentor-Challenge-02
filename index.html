@@ -1,15 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./assets/images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>Frontend Mentor | Multi-step form</title>
+  </head>
+  <body>
+    <section class="main">
+      <div class="sidebar">
+        <div class="sidebar__content">
+          <div class="sidebar__content-step">
+            <div class="sidebar__content-step-number">1</div>
+            <div class="sidebar__content-step-description">
+              <p class="sidebar__content-step-title">step1</p>
+              <p class="sidebar__content-step-info">your info</p>
+            </div>
+            <!--step-description  -->
+          </div>
+          <!-- content-step -->
+          <div class="sidebar__content-step">
+            <div class="sidebar__content-step-number">2</div>
+            <div class="sidebar__content-step-description">
+              <p class="sidebar__content-step-title">step2</p>
+              <p class="sidebar__content-step-info">select plan</p>
+            </div>
+            <!--step-description  -->
+          </div>
+          <!-- content-step -->
 
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
-  <title>Frontend Mentor | Multi-step form</title>
+          <div class="sidebar__content-step">
+            <div class="sidebar__content-step-number">3</div>
+            <div class="sidebar__content-step-description">
+              <p class="sidebar__content-step-title">step3</p>
+              <p class="sidebar__content-step-info">ADD-ONS</p>
+            </div>
+            <!--step-description  -->
+          </div>
+          <!-- content-step -->
 
-</head>
-<body>
+          <div class="sidebar__content-step">
+            <div class="sidebar__content-step-number">4</div>
+            <div class="sidebar__content-step-description">
+              <p class="sidebar__content-step-title">step4</p>
+              <p class="sidebar__content-step-info">summary</p>
+            </div>
+            <!--step-description  -->
+          </div>
+          <!-- content-step -->
+        </div>
+        <!-- sidebar__content -->
+      </div>
+      <!-- sidebar -->
+      <!-- form validation -->
 
-</body>
+      <form action="" class="form">
+        <h1 class="form__header">Personal info</h1>
+        <p class="form_info">
+          Please provide your name, email address, and phone number
+        </p>
+        <label for="name" class="form__label">Name</label>
+        <input type="text" id="name" class="form__input" />
+        <label for="email" class="form__label">Email address</label>
+        <input type="text" id="email" class="form__input" />
+        <label for="phone" class="form__label">phone number</label>
+        <input type="text" id="phone" class="form__input" />
+        <button class="form_btn" type="submit">Next</button>
+      </form>
+    </section>
+  </body>
 </html>

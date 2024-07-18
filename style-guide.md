@@ -25,7 +25,7 @@ The designs were created to the following widths:
 - Light gray: hsl(229, 24%, 87%)
 - Magnolia: hsl(217, 100%, 97%)
 - Alabaster: hsl(231, 100%, 99%)
-- White: hsl(0, 0%, 100%)
+- White: c
 
 ## Typography
 
