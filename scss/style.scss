@@ -9,9 +9,7 @@
 
 .main {
   background: $mainColor;
-  width: 700px;
-  height: 400px;
-  border-radius: 10px;
+  @include layout(700px,400px,10px);
   padding: 10px;
   @include flexbox(null, row, space-between);
   .sidebar {
