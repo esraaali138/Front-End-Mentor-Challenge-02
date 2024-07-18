@@ -1,8 +1,5 @@
-// $font-weights :(
-//     "regular" :400,
-//     "bold" : 600,
 
-// );
+$sidebarImg : url("../assets/images/bg-sidebar-desktop.svg");
 
 // $text-colors : (
 //     "primary" : rgb(116, 112, 112),
@@ -11,9 +8,18 @@
 //     "success-color" : 
 // );
 
-
-$colorBody: hsl(217, 100%, 97%)
+// for colors 
+$colorBody: hsl(217, 100%, 97%);
+$mainColor : hsl(0, 0%, 100%)
 // $primary_color : 
 // $secondary_color : 
 // $errorColor : 
 // $successColor : 
+
+
+// $font-weights :(
+//     "regular" :400,
+//     "bold" : 600,
+
+// );
+

@@ -7,10 +7,74 @@
 body {
   margin: 0;
   background: hsl(217, 100%, 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
-p {
-  color: rgb(151, 134, 134);
+.main {
+  background: hsl(0, 0%, 100%);
+  width: 700px;
+  height: 400px;
+  border-radius: 10px;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+}
+.main .sidebar {
+  background: url("../assets/images/bg-sidebar-desktop.svg") no-repeat;
+  background-size: cover;
+  height: 380px;
+  width: 30%;
+  padding: 20px;
+  border-radius: 8px;
+}
+.main .sidebar__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: stretch;
+  gap: 20px;
+}
+.main .sidebar__content-step {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+}
+.main .sidebar__content-step-number {
+  width: 30px;
+  height: 30px;
+  border: 1px solid hsl(0, 0%, 100%);
+  color: hsl(0, 0%, 100%);
+  border-radius: 50%;
+  text-align: center;
+  line-height: 30px;
+}
+.main .sidebar__content-step-description {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 2px;
+}
+.main .sidebar__content-step-description-title {
+  color: hsl(231, 11%, 63%);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+.main .sidebar__content-step-description-info {
+  color: hsl(0, 0%, 100%);
+  text-transform: uppercase;
+  font-size: 12px;
+  font-family: Ubuntu;
+}
+.main .form {
+  width: 60%;
 }
 
 /*# sourceMappingURL=style.css.map */
