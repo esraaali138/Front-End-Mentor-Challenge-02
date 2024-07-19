@@ -9,15 +9,17 @@
 
 .main {
   background: $mainColor;
-  @include layout(700px, 400px, 10px);
+  font-family: Ubuntu;
+  @include layout(800px, 480px, 10px);
   padding: 10px;
   @include flexbox(null, row, space-between);
   .sidebar {
     background: $sidebarImg no-repeat;
-    background-size: cover;
-    @include layout(380px, 30%, 8px);
+    background-size: contain;
+    @include layout(32%, 455px, 8px);
     padding: 20px;
-    &__content {
+    &-content {
+      margin-top: 10px;
       @include flexbox(20px, column, center);
       &-step {
         @include flexbox(10px);
@@ -26,26 +28,117 @@
           border: 1px solid $mainColor;
           color: $mainColor;
           text-align: center;
-          line-height: 30px;
+          line-height: 28px;
         }
         &-description {
+          text-transform: uppercase;
           @include flexbox(2px, column);
           &-title {
             color: hsl(231, 11%, 63%);
             font-size: 12px;
-            text-transform: uppercase;
           }
           &-info {
             color: $mainColor;
-            text-transform: uppercase;
             font-size: 12px;
-            font-family: Ubuntu;
+            font-weight: 500;
           }
         }
       }
     }
   }
   .form {
-    width: 60%;
+    width: 62%;
+    &-step {
+      margin-top: 35px;
+      &-header {
+        color: $primary_color;
+      }
+      &-title {
+        color: hsl(231, 11%, 63%);
+        margin-top: 8px;
+        font-size: 14.4px;
+      }
+
+      &-fields {
+        @include flexbox(10px, column);
+        margin-top: 30px;
+        &-label {
+          color: $primary_color;
+          margin-top: 10px;
+        }
+        &-input {
+          width: 82%;
+          outline: 0;
+          border-radius: 8px;
+          border: 1px solid $inputColor;
+          padding: 10px;
+          color: $primary_color;
+          font-weight: bold;
+        }
+        &-btn {
+          width: 397px;
+          margin-top: 30px;
+          @include flexbox(null, row, flex-end);
+        }
+      }
+      &-plan {
+        width: 400px;
+        &-options {
+          @include flexbox(20px, row);
+          &-option {
+            @include layout(120px, 130px, 10px);
+            border: 1px solid $inputColor;
+            margin-top: 30px;
+            padding: 10px;
+            cursor: pointer;
+            &-info {
+              margin-top: 20px;
+              padding: 10px 0;
+              @include flexbox(4px, column);
+              &-level {
+                color: $primary_color;
+                font-weight: 500;
+              }
+              &-time {
+                color: hsl(231, 11%, 63%);
+              }
+            }
+          }
+        }
+
+        &-toggle {
+          @include flexbox(24px, row, center);
+          margin-top: 30px;
+          background: hsl(231, 100%, 98%);
+          width: 400px;
+          padding: 8px 0;
+          line-height: 20px;
+          border-radius: 8px;
+          p {
+            color: $primary_color;
+            font-weight: 500;
+          }
+        }
+        &-btns {
+          margin-top: 45px;
+          @include flexbox(null, row, space-between, center);
+        }
+      }
+      &-ons {
+        @include flexbox(10px, column);
+        &-addons{
+          border: 1px solid;
+          width: 300px;
+          padding: 10px;
+          margin-top: 20px;
+        }
+      }
+    }
   }
+}
+.gg {
+  display: none;
+}
+.nn {
+  display: none;
 }

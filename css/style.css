@@ -13,10 +13,89 @@ body {
   height: 100vh;
 }
 
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 22px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(213, 96%, 18%);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 16px;
+  width: 16px;
+  left: 4px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: hsl(213, 96%, 18%);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+.btn {
+  cursor: pointer;
+  border: 0;
+  padding: 10px 20px;
+}
+
+.next {
+  background: hsl(213, 96%, 18%);
+  color: hsl(0, 0%, 100%);
+  border-radius: 6px;
+}
+
+.back {
+  color: hsl(213, 96%, 18%);
+  font-weight: bold;
+  background: transparent;
+}
+
+.nn {
+  display: none;
+}
+
 .main {
   background: hsl(0, 0%, 100%);
-  width: 700px;
-  height: 400px;
+  font-family: Ubuntu;
+  width: 800px;
+  height: 480px;
   border-radius: 10px;
   padding: 10px;
   display: flex;
@@ -26,55 +105,175 @@ body {
 }
 .main .sidebar {
   background: url("../assets/images/bg-sidebar-desktop.svg") no-repeat;
-  background-size: cover;
-  height: 380px;
-  width: 30%;
-  padding: 20px;
+  background-size: contain;
+  width: 32%;
+  height: 455px;
   border-radius: 8px;
+  padding: 20px;
 }
-.main .sidebar__content {
+.main .sidebar-content {
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
   gap: 20px;
 }
-.main .sidebar__content-step {
+.main .sidebar-content-step {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: stretch;
   gap: 10px;
 }
-.main .sidebar__content-step-number {
+.main .sidebar-content-step-number {
   width: 30px;
   height: 30px;
+  border-radius: 50%;
   border: 1px solid hsl(0, 0%, 100%);
   color: hsl(0, 0%, 100%);
-  border-radius: 50%;
   text-align: center;
-  line-height: 30px;
+  line-height: 28px;
 }
-.main .sidebar__content-step-description {
+.main .sidebar-content-step-description {
+  text-transform: uppercase;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
   gap: 2px;
 }
-.main .sidebar__content-step-description-title {
+.main .sidebar-content-step-description-title {
   color: hsl(231, 11%, 63%);
   font-size: 12px;
-  text-transform: uppercase;
 }
-.main .sidebar__content-step-description-info {
+.main .sidebar-content-step-description-info {
   color: hsl(0, 0%, 100%);
-  text-transform: uppercase;
   font-size: 12px;
-  font-family: Ubuntu;
+  font-weight: 500;
 }
 .main .form {
-  width: 60%;
+  width: 62%;
+}
+.main .form-step {
+  margin-top: 35px;
+}
+.main .form-step-header {
+  color: hsl(213, 96%, 18%);
+}
+.main .form-step-title {
+  color: hsl(231, 11%, 63%);
+  margin-top: 8px;
+  font-size: 14.4px;
+}
+.main .form-step-fields {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+  margin-top: 30px;
+}
+.main .form-step-fields-label {
+  color: hsl(213, 96%, 18%);
+  margin-top: 10px;
+}
+.main .form-step-fields-input {
+  width: 82%;
+  outline: 0;
+  border-radius: 8px;
+  border: 1px solid hsl(229, 24%, 87%);
+  padding: 10px;
+  color: hsl(213, 96%, 18%);
+  font-weight: bold;
+}
+.main .form-step-fields-btn {
+  width: 397px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: stretch;
+}
+.main .form-step-plan {
+  width: 400px;
+}
+.main .form-step-plan-options {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 20px;
+}
+.main .form-step-plan-options-option {
+  width: 120px;
+  height: 130px;
+  border-radius: 10px;
+  border: 1px solid hsl(229, 24%, 87%);
+  margin-top: 30px;
+  padding: 10px;
+  cursor: pointer;
+}
+.main .form-step-plan-options-option-info {
+  margin-top: 20px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 4px;
+}
+.main .form-step-plan-options-option-info-level {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.main .form-step-plan-options-option-info-time {
+  color: hsl(231, 11%, 63%);
+}
+.main .form-step-plan-toggle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 24px;
+  margin-top: 30px;
+  background: hsl(231, 100%, 98%);
+  width: 400px;
+  padding: 8px 0;
+  line-height: 20px;
+  border-radius: 8px;
+}
+.main .form-step-plan-toggle p {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.main .form-step-plan-btns {
+  margin-top: 45px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .form-step-ons {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  gap: 10px;
+}
+.main .form-step-ons-addons {
+  border: 1px solid;
+  width: 300px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.gg {
+  display: none;
+}
+
+.nn {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
