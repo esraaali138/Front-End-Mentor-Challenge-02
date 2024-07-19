@@ -67,7 +67,7 @@
     padding: 10px 20px;
   }
 
-  .next {
+  .next , .confirm {
     background: hsl(213, 96%, 18%);
     color: $mainColor;
     border-radius: 6px;
@@ -77,6 +77,9 @@
     font-weight: bold;
     background: transparent;
     margin-left: -20px;
+  }
+  .confirm {
+    background: $secondary;
   }
 
   .nn{

@@ -2,10 +2,6 @@
 @import "./base";
 @import "./mixins";
 @import "./utilities";
-// p {
-//     font-weight: map-get($font-weights, bold);
-//     color: map-get($font-colors, primary);
-// }
 
 .main {
   background: $mainColor;
@@ -24,9 +20,8 @@
       &-step {
         @include flexbox(10px);
         &-number {
-          @include layout(30px, 30px, 50%);
+          @include layout(30px, 30px, 50%, $mainColor);
           border: 1px solid $mainColor;
-          color: $mainColor;
           text-align: center;
           line-height: 28px;
         }
@@ -39,8 +34,7 @@
           }
           &-info {
             color: $mainColor;
-            font-size: 12px;
-            font-weight: 500;
+            @include font(12px, 500);
           }
         }
       }
@@ -67,12 +61,10 @@
           margin-top: 10px;
         }
         &-input {
-          width: 82%;
+          @include layout(82%, inherit, 8px, $primary);
           outline: 0;
-          border-radius: 8px;
           border: 1px solid $inputColor;
           padding: 10px;
-          color: $primary;
           font-weight: bold;
         }
         &-btn {
@@ -108,12 +100,11 @@
 
         &-toggle {
           @include flexbox(24px, row, center);
+          @include layout(400px, inherit, 8px);
           margin-top: 30px;
           background: hsl(231, 100%, 98%);
-          width: 400px;
           padding: 8px 0;
           line-height: 20px;
-          border-radius: 8px;
           p {
             color: $primary;
             font-weight: 500;
@@ -126,24 +117,20 @@
       }
       &-ons {
         @include flexbox(0px, column);
-        &-addons{
+        &-addons {
           border: 1px solid $inputColor;
-          width: 380px;
-          border-radius: 8px;
+          @include layout(82%, inherit, 8px);
+          @include flexbox(2px, row, space-between, center);
           cursor: pointer;
           padding: 16px;
           margin-top: 20px;
-          @include flexbox(2px , row , space-between , center);
-
-          
           &-check {
-            width: 30px;
-            height: 18px;
+            @include layout(30px, 18px, 0);
           }
           &-info {
             margin-right: 35px;
             width: 200px;
-            &-one{
+            &-one {
               color: $primary;
               font-weight: 500;
             }
@@ -153,46 +140,93 @@
               font-size: 14px;
             }
           }
-        &-time{
-          color: $secondary;
-          font-weight: 500;
-          font-size: 14px;
+          &-time {
+            color: $secondary;
+            @include font(14px, 500);
+          }
         }
-        }
-        &-btns{
-          width: 380px;
+        &-btns {
+          width: 395px;
           margin-top: 38px;
           padding: 10px 0;
-          @include flexbox(0px , row , space-between , center)
+          @include flexbox(0px, row, space-between, center);
         }
       }
 
+      &-checkout {
+        margin-top: 26px;
+        &-info {
+          background: hsl(231, 100%, 99%);
+          padding: 18px;
+          @include flexbox(10px, column);
+          @include layout(82%, inherit, 8px);
+          hr {
+            border: 1px solid hsl(240, 6%, 90%);
+          }
+          &-one {
+            @include flexbox(0px, row, space-between, center);
+            color: $primary;
+            font-weight: bold;
+          }
+          &-two {
+            @include flexbox(0px, row, space-between, center);
+            span {
+              color: $titleColor;
+            }
+            p {
+              color: $primary;
+            }
+          }
+          &-three {
+            @include flexbox(0px, row, space-between, center);
+            span {
+              color: $titleColor;
+            }
+            p {
+              color: $primary;
+            }
+          }
+        }
+        &-total {
+          width: 365px;
+          @include flexbox(0px, row, space-between, center);
+          margin-left: 20px;
+          margin-top: 24px;
+          color: $titleColor;
+          p {
+            color: $secondary;
+            @include font(18px , 900);
+          }
+        }
+        &-btns {
+          width: 395px;
+          margin-top: 100px;
+          @include flexbox(0px, row, space-between, center);
+        }
+      }
     }
-    &-submitted{
-      width: 450px;
-      height: 450px;
+    &-submitted {
       padding: 10px;
       text-align: center;
-      @include flexbox(20px , column , center , center);
+      @include layout(450px, 450px, 0);
+      @include flexbox(20px, column, center, center);
       &-message1 {
         color: $primary;
-        font-weight: bold;
-        font-size: 24px;
+        @include font(26px, bold);
       }
-      &-message2{
+      &-message2 {
         color: $titleColor;
         line-height: 1.3;
       }
     }
   }
 }
-.gg {
-  display: none;
-}
-.nn {
-  display: none;
-}
-.pp{
-  display: none;
-
-}
+// .gg {
+//   display: none;
+// }
+// .nn {
+//   display: none;
+// }
+// .pp {
+//   display: none;
+// }

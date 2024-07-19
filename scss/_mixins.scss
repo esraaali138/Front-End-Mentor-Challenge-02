@@ -8,8 +8,13 @@ align-items: $align;
 }
 }
 
-@mixin layout($width , $height , $border-radius ){
+@mixin layout($width , $height :inherit , $border-radius  , $color : white){
     width: $width;
     height: $height;
     border-radius: $border-radius;
+    color: $color;
+}
+@mixin font($size , $weight) {
+    font-size: $size;
+    font-weight: $weight;
 }
