@@ -34,7 +34,7 @@
           text-transform: uppercase;
           @include flexbox(2px, column);
           &-title {
-            color: hsl(231, 11%, 63%);
+            color: $titleColor;
             font-size: 12px;
           }
           &-info {
@@ -51,10 +51,10 @@
     &-step {
       margin-top: 35px;
       &-header {
-        color: $primary_color;
+        color: $primary;
       }
       &-title {
-        color: hsl(231, 11%, 63%);
+        color: $titleColor;
         margin-top: 8px;
         font-size: 14.4px;
       }
@@ -63,7 +63,7 @@
         @include flexbox(10px, column);
         margin-top: 30px;
         &-label {
-          color: $primary_color;
+          color: $primary;
           margin-top: 10px;
         }
         &-input {
@@ -72,12 +72,12 @@
           border-radius: 8px;
           border: 1px solid $inputColor;
           padding: 10px;
-          color: $primary_color;
+          color: $primary;
           font-weight: bold;
         }
         &-btn {
-          width: 397px;
           margin-top: 30px;
+          width: 397px;
           @include flexbox(null, row, flex-end);
         }
       }
@@ -96,11 +96,11 @@
               padding: 10px 0;
               @include flexbox(4px, column);
               &-level {
-                color: $primary_color;
+                color: $primary;
                 font-weight: 500;
               }
               &-time {
-                color: hsl(231, 11%, 63%);
+                color: $titleColor;
               }
             }
           }
@@ -115,7 +115,7 @@
           line-height: 20px;
           border-radius: 8px;
           p {
-            color: $primary_color;
+            color: $primary;
             font-weight: 500;
           }
         }
@@ -125,13 +125,63 @@
         }
       }
       &-ons {
-        @include flexbox(10px, column);
+        @include flexbox(0px, column);
         &-addons{
-          border: 1px solid;
-          width: 300px;
-          padding: 10px;
+          border: 1px solid $inputColor;
+          width: 380px;
+          border-radius: 8px;
+          cursor: pointer;
+          padding: 16px;
           margin-top: 20px;
+          @include flexbox(2px , row , space-between , center);
+
+          
+          &-check {
+            width: 30px;
+            height: 18px;
+          }
+          &-info {
+            margin-right: 35px;
+            width: 200px;
+            &-one{
+              color: $primary;
+              font-weight: 500;
+            }
+            &-two {
+              color: $titleColor;
+              margin-top: 4px;
+              font-size: 14px;
+            }
+          }
+        &-time{
+          color: $secondary;
+          font-weight: 500;
+          font-size: 14px;
         }
+        }
+        &-btns{
+          width: 380px;
+          margin-top: 38px;
+          padding: 10px 0;
+          @include flexbox(0px , row , space-between , center)
+        }
+      }
+
+    }
+    &-submitted{
+      width: 450px;
+      height: 450px;
+      padding: 10px;
+      text-align: center;
+      @include flexbox(20px , column , center , center);
+      &-message1 {
+        color: $primary;
+        font-weight: bold;
+        font-size: 24px;
+      }
+      &-message2{
+        color: $titleColor;
+        line-height: 1.3;
       }
     }
   }
@@ -141,4 +191,8 @@
 }
 .nn {
   display: none;
+}
+.pp{
+  display: none;
+
 }

@@ -85,6 +85,7 @@ input:checked + .slider:before {
   color: hsl(213, 96%, 18%);
   font-weight: bold;
   background: transparent;
+  margin-left: -20px;
 }
 
 .nn {
@@ -188,8 +189,8 @@ input:checked + .slider:before {
   font-weight: bold;
 }
 .main .form-step-fields-btn {
-  width: 397px;
   margin-top: 30px;
+  width: 397px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -259,13 +260,72 @@ input:checked + .slider:before {
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 10px;
+  gap: 0px;
 }
 .main .form-step-ons-addons {
-  border: 1px solid;
-  width: 300px;
-  padding: 10px;
+  border: 1px solid hsl(229, 24%, 87%);
+  width: 380px;
+  border-radius: 8px;
+  cursor: pointer;
+  padding: 16px;
   margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2px;
+}
+.main .form-step-ons-addons-check {
+  width: 30px;
+  height: 18px;
+}
+.main .form-step-ons-addons-info {
+  margin-right: 35px;
+  width: 200px;
+}
+.main .form-step-ons-addons-info-one {
+  color: hsl(213, 96%, 18%);
+  font-weight: 500;
+}
+.main .form-step-ons-addons-info-two {
+  color: hsl(231, 11%, 63%);
+  margin-top: 4px;
+  font-size: 14px;
+}
+.main .form-step-ons-addons-time {
+  color: hsl(243, 100%, 62%);
+  font-weight: 500;
+  font-size: 14px;
+}
+.main .form-step-ons-btns {
+  width: 380px;
+  margin-top: 38px;
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0px;
+}
+.main .form-submitted {
+  width: 450px;
+  height: 450px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.main .form-submitted-message1 {
+  color: hsl(213, 96%, 18%);
+  font-weight: bold;
+  font-size: 24px;
+}
+.main .form-submitted-message2 {
+  color: hsl(231, 11%, 63%);
+  line-height: 1.3;
 }
 
 .gg {
@@ -273,6 +333,10 @@ input:checked + .slider:before {
 }
 
 .nn {
+  display: none;
+}
+
+.pp {
   display: none;
 }
 
