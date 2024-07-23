@@ -22,8 +22,8 @@
         &-number {
           @include layout(30px, 30px, 50%, $mainColor);
           border: 1px solid $mainColor;
-          text-align: center;
           line-height: 28px;
+          text-align: center;
         }
         &-description {
           text-transform: uppercase;
@@ -56,10 +56,22 @@
       &-fields {
         @include flexbox(10px, column);
         margin-top: 30px;
-        &-label {
-          color: $primary;
-          margin-top: 10px;
+
+        &-container{
+          width: 82%;
+          @include flexbox(0px , row , space-between , center);
+          &-label {
+            color: $primary;
+            margin-top: 10px;
+          }
+          &-error {
+            color: $error;
+            margin-top: 10px;
+            font-weight: 500
+            
+          }
         }
+ 
         &-input {
           @include layout(82%, inherit, 8px, $primary);
           outline: 0;
@@ -204,29 +216,28 @@
           @include flexbox(0px, row, space-between, center);
         }
       }
-    }
-    &-submitted {
-      padding: 10px;
-      text-align: center;
-      @include layout(450px, 450px, 0);
-      @include flexbox(20px, column, center, center);
-      &-message1 {
-        color: $primary;
-        @include font(26px, bold);
+      &-submitted {
+        padding: 10px;
+        text-align: center;
+        @include layout(450px, 450px, 0);
+        @include flexbox(20px, column, center, center);
+        &-message1 {
+          color: $primary;
+          @include font(26px, bold);
+        }
+        &-message2 {
+          color: $titleColor;
+          line-height: 1.3;
+        }
       }
-      &-message2 {
-        color: $titleColor;
-        line-height: 1.3;
-      }
+  
     }
+
   }
 }
-// .gg {
-//   display: none;
-// }
-// .nn {
-//   display: none;
-// }
-// .pp {
-//   display: none;
-// }
+.hidden {
+  display: none;
+}
+.active {
+  background: red;
+}

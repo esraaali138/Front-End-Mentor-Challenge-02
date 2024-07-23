@@ -22,7 +22,7 @@
       <div class="sidebar">
         <div class="sidebar-content">
           <div class="sidebar-content-step">
-            <div class="sidebar-content-step-number">1</div>
+            <div id="divactive"  class="sidebar-content-step-number active">1</div>
             <div class="sidebar-content-step-description">
               <p class="sidebar-content-step-description-title">step1</p>
               <p class="sidebar-content-step-description-info">your info</p>
@@ -31,7 +31,7 @@
           </div>
           <!-- content-step -->
           <div class="sidebar-content-step">
-            <div class="sidebar-content-step-number">2</div>
+            <div  class="sidebar-content-step-number">2</div>
             <div class="sidebar-content-step-description">
               <p class="sidebar-content-step-description-title">step2</p>
               <p class="sidebar-content-step-description-info">select plan</p>
@@ -41,7 +41,7 @@
           <!-- content-step -->
 
           <div class="sidebar-content-step">
-            <div class="sidebar-content-step-number">3</div>
+            <div  class="sidebar-content-step-number">3</div>
             <div class="sidebar-content-step-description">
               <p class="sidebar-content-step-description-title">step1</p>
               <p class="sidebar-content-step-description-info">ADD-ONS</p>
@@ -51,7 +51,7 @@
           <!-- content-step -->
 
           <div class="sidebar-content-step">
-            <div class="sidebar-content-step-number">4</div>
+            <div data-target class="sidebar-content-step-number">4</div>
             <div class="sidebar-content-step-description">
               <p class="sidebar-content-step-description-title">step4</p>
               <p class="sidebar-content-step-description-info">summary</p>
@@ -65,32 +65,34 @@
       <!-- sidebar -->
       <!-- form validation -->
 
-      <form action="" class="form">
-        <div class="form-step gg">
+      <form action=""  class="form" id="myform">
+        <div class="form-step ">
           <h1 class="form-step-header">Personal info</h1>
           <p class="form-step-title">
             Please provide your name, email address, and phone number.
           </p>
           <div class="form-step-fields">
-            <label for="name" class="form-step-fields-label">Name</label>
+            <div class="form-step-fields-container">
+              <label for="name" class="form-step-fields-container-label">Name</label>
+            </div>
             <input
               type="text"
               placeholder="e.g.esraa ali"
               id="name"
               class="form-step-fields-input"
             />
-            <label for="email" class="form-step-fields-label"
-              >Email address</label
-            >
+            <div class="form-step-fields-container">
+              <label for="name" class="form-step-fields-container-label">Email Address</label>
+            </div>
             <input
               type="text"
               placeholder="e.g.esraaali@lorem.com"
               id="email"
               class="form-step-fields-input"
             />
-            <label for="phone" class="form-step-fields-label"
-              >phone number</label
-            >
+            <div class="form-step-fields-container">
+              <label for="name" class="form-step-fields-container-label">Phone Number</label>
+            </div>
             <input
               type="text"
               placeholder="e.g. +1 234 567 890"
@@ -105,7 +107,7 @@
         </div>
         <!-- form_step -->
 
-        <div class="form-step nn">
+        <div class="form-step hidden">
           <h1 class="form-step-header">Select your plan</h1>
           <p class="form-step-title">
             you have option monthly or yearly billing.
@@ -166,7 +168,7 @@
         </div>
         <!-- form_step -->
 
-        <div class="form-step pp">
+        <div class="form-step hidden">
           <h1 class="form-step-header">Pick add-ons</h1>
           <p class="form-step-title">
             Add-ons help enhance your gaming experience.
@@ -220,7 +222,7 @@
         </div>
         <!-- form_step -->
 
-        <div class="form-step">
+        <div class="form-step hidden">
           <h1 class="form-step-header">Finishing up</h1>
           <p class="form-step-title">
             Double-check everything looks of before confirming.
@@ -263,16 +265,19 @@
           <!-- checkout -->
         </div>
         <!-- form_step -->
-        <div class="form-submitted">
-          <img src="./assets/images/icon-thank-you.svg" width="60px" alt="" />
-          <p class="form-submitted-message1">Thank you!</p>
-          <p class="form-submitted-message2">
-            Thanks for confirming your subscriptions! We hope you have fun using
-            out platform. If you ever need suport, please feel free to mail us
-            suport@esraaali.com.
-          </p>
+        <div class="form-step hidden">
+          <div class="form-step-submitted">
+            <img src="./assets/images/icon-thank-you.svg" width="60px" alt="" />
+            <p class="form-step-submitted-message1">Thank you!</p>
+            <p class="form-step-submitted-message2">
+              Thanks for confirming your subscriptions! We hope you have fun
+              using out platform. If you ever need suport, please feel free to
+              mail us suport@esraaali.com.
+            </p>
+          </div>
         </div>
       </form>
     </section>
+    <script src="js/script.js"></script>
   </body>
 </html>

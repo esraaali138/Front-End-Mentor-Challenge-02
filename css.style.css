@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  background: hsl(231, 100%, 99%);
+  background: hsl(216, 100%, 3%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -137,7 +137,6 @@ input:checked + .slider:before {
   color: hsl(0, 0%, 100%);
   border: 1px solid hsl(0, 0%, 100%);
   line-height: 28px;
-  text-align: center;
 }
 .main .sidebar-content-step-description {
   text-transform: uppercase;
@@ -433,12 +432,8 @@ input:checked + .slider:before {
   line-height: 1.3;
 }
 
-.hidden {
+.ss {
   display: none;
 }
 
-.active {
-  background: red;
-}
-
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=css.style.css.map */
