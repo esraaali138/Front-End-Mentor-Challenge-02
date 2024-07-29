@@ -241,3 +241,7 @@
 .active {
   background: red;
 }
+.toggle {
+  border: 1px solid hsl(243, 100%, 70%) !important;
+  background: $colorBody;
+}

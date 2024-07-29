@@ -441,4 +441,9 @@ input:checked + .slider:before {
   background: red;
 }
 
+.toggle {
+  border: 1px solid hsl(243, 100%, 70%) !important;
+  background: hsl(231, 100%, 99%);
+}
+
 /*# sourceMappingURL=style.css.map */

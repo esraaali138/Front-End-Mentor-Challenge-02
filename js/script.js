@@ -2,6 +2,7 @@ const form = document.getElementById("myform");
 const buttonStep = document.querySelectorAll(".btn");
 const btnTarget = document.querySelectorAll(".btns");
 const inputFields = document.querySelectorAll(".form-step-fields-input");
+
 let count = 0;
 let i = 0;
 function inputValidation() {
@@ -48,50 +49,59 @@ function inputValidation() {
   return hasError; //will return true if haserror = true
 }
 
+function addToggleClass(element) {
+  element.forEach((ele) => {
+    ele.addEventListener("click", () => {
+      const parentElement = ele.parentElement;
+      parentElement.classList.toggle("toggle");
+    });
+  });
+}
+
+addToggleClass(
+  document.querySelectorAll(".form-step-ons-addons input[type='checkbox']")
+);
+
+
 btnTarget.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
     const formStep = document.querySelectorAll(".form-step");
     const active = document.querySelectorAll(".sidebar-content-step-number");
-
+    const selectPlan = document.querySelectorAll(
+      ".form-step-plan-options-option"
+    );
+    selectPlan.forEach((select) => {
+      select.addEventListener("click", () => {
+        select.classList.toggle("toggle");
+      });
+    });
     if (e.target.classList.contains("next")) {
       if (i < formStep.length) {
-        if (inputValidation()) {
-          //function reurn true
-          return;
-        }
+        // if (inputValidation()) {
+        //   //function reurn true
+        //   return;
+        // }
         formStep[i].classList.add("hidden");
       }
 
       if (count < active.length) {
         active[count].classList.remove("active");
       }
-
       count++;
       i++;
-
+      if(count >= 1) {
+        const nextBtn = e.target.classList.contains("back"); // لسه
+      }
       formStep[i].classList.remove("hidden");
       active[count].classList.add("active");
 
       if (i > formStep.length) {
         i = 0;
       }
-      if (count >= active.length) {
+      if (count >= active.length ) {
         count = 0;
       }
-    } else if (e.target.classList.contains("back")) {
-      if (i < formStep.length) {
-        formStep[i].classList.add("hidden");
-      }
-
-      if (count < active.length) {
-        active[i].classList.remove("active");
-      }
-      i--;
-      count--;
-
-      formStep[i].classList.remove("hidden");
-      active[i].classList.add("active");
     }
   });
 });
