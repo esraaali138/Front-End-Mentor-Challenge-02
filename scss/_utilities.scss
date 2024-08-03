@@ -80,3 +80,24 @@ input:checked + .slider:before {
 .confirm {
   background: $secondary;
 }
+
+.hidden {
+  display: none;
+}
+.active {
+  background: red;
+}
+.toggle {
+  border: 1px solid hsl(243, 100%, 70%) !important;
+  background: $colorBody;
+}
+.back:disabled {
+  color: rgb(177, 177, 177);
+  cursor: not-allowed;
+}
+.discount{
+  font-size: 14px;
+  margin-top: 6px;
+  font-weight: 500;
+  color: $primary;
+}

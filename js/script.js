@@ -2,6 +2,7 @@ const form = document.getElementById("myform");
 const buttonStep = document.querySelectorAll(".btn");
 const btnTarget = document.querySelectorAll(".btns");
 const inputFields = document.querySelectorAll(".form-step-fields-input");
+const checkboxInput = document.querySelector(".switch input");
 
 let count = 0;
 let i = 0;
@@ -62,7 +63,6 @@ addToggleClass(
   document.querySelectorAll(".form-step-ons-addons input[type='checkbox']")
 );
 
-
 btnTarget.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
@@ -75,7 +75,22 @@ btnTarget.forEach((btn) => {
       select.addEventListener("click", () => {
         select.classList.toggle("toggle");
       });
+      const time = select.children[1].children[1].children[0];      
+      checkboxInput.addEventListener("change", () => {
+        if (checkboxInput.checked) {
+          time.textContent = "yr";
+          time.insertAdjacentHTML("afterend", `<p>2 months free</p>`);
+          time.nextElementSibling.classList.add("discount");
+          select.style.height = "160px"
+
+        } else {
+          time.textContent = "mo";
+          time.nextElementSibling.remove();
+          select.style.height = "130px" // هنا
+        }
+      });
     });
+
     if (e.target.classList.contains("next")) {
       if (i < formStep.length) {
         // if (inputValidation()) {
@@ -90,18 +105,18 @@ btnTarget.forEach((btn) => {
       }
       count++;
       i++;
-      if(count >= 1) {
-        const nextBtn = e.target.classList.contains("back"); // لسه
-      }
       formStep[i].classList.remove("hidden");
       active[count].classList.add("active");
 
       if (i > formStep.length) {
         i = 0;
       }
-      if (count >= active.length ) {
+      if (count >= active.length) {
         count = 0;
       }
+      // if (btn.classList.contains("back")) {
+      //   btn.disabled = true;
+      // }
     }
   });
 });
