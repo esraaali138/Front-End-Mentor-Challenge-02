@@ -2,10 +2,48 @@ const form = document.getElementById("myform");
 const buttonStep = document.querySelectorAll(".btn");
 const btnTarget = document.querySelectorAll(".btns");
 const inputFields = document.querySelectorAll(".form-step-fields-input");
-const checkboxInput = document.querySelector(".switch input");
 
 let count = 0;
 let i = 0;
+
+function addToggleClass(element) {
+  element.forEach((ele) => {
+    ele.addEventListener("click", () => {
+      const parentElement = ele.parentElement;
+      parentElement.classList.toggle("toggle");
+    });
+  });
+}
+
+addToggleClass(
+  document.querySelectorAll(".form-step-ons-addons input[type='checkbox']")
+);
+
+function covertTimeToYear() {
+  const stepAddonsTime = document.querySelectorAll(".time");
+  stepAddonsTime.forEach((step) => {
+    const parentElement = step.parentElement;
+    parentElement.innerHTML = `+$<span class="time">${(step.textContent =
+      parseInt(step.textContent) * 10)}</span>/yr`;
+  });
+}
+
+function selectValidation() {
+  let isSelected = true;
+  const selectPlan = document.querySelectorAll(
+    ".form-step-plan-options-option"
+  );
+  selectPlan.forEach((select) => {
+    select.addEventListener("click", () => {
+      if (!select.classList.contains("toggle")) {
+        isSelected = false;
+      }
+    });
+  });
+
+  return isSelected;
+}
+
 function inputValidation() {
   let hasError = false;
 
@@ -50,61 +88,64 @@ function inputValidation() {
   return hasError; //will return true if haserror = true
 }
 
-function addToggleClass(element) {
-  element.forEach((ele) => {
-    ele.addEventListener("click", () => {
-      const parentElement = ele.parentElement;
-      parentElement.classList.toggle("toggle");
+function selectPlan() {
+  const selectPlan = document.querySelectorAll(
+    ".form-step-plan-options-option"
+  );
+  const checkboxInput = document.querySelector(".switch input");
+
+  selectPlan.forEach((select) => {
+    select.addEventListener("click", () => {
+      select.classList.toggle("toggle");
+    });
+    const time = select.children[1].children[1].children[0];
+    checkboxInput.addEventListener("change", () => {
+      if (checkboxInput.checked) {
+        time.textContent = "yr";
+        time.insertAdjacentHTML("afterend", `<p>2 months free</p>`);
+        time.nextElementSibling.classList.add("discount");
+        select.style.height = "160px";
+        covertTimeToYear();
+      } else {
+        time.textContent = "mo";
+        time.nextElementSibling.remove();
+        select.style.height = "130px";
+      }
     });
   });
 }
 
-addToggleClass(
-  document.querySelectorAll(".form-step-ons-addons input[type='checkbox']")
-);
-
 btnTarget.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
+
+    // if(selectValidation()){
+    //   alert("select plan");
+    //   return
+    // } /// هنا
+
+
     const formStep = document.querySelectorAll(".form-step");
     const active = document.querySelectorAll(".sidebar-content-step-number");
-    const selectPlan = document.querySelectorAll(
-      ".form-step-plan-options-option"
-    );
-    selectPlan.forEach((select) => {
-      select.addEventListener("click", () => {
-        select.classList.toggle("toggle");
-      });
-      const time = select.children[1].children[1].children[0];      
-      checkboxInput.addEventListener("change", () => {
-        if (checkboxInput.checked) {
-          time.textContent = "yr";
-          time.insertAdjacentHTML("afterend", `<p>2 months free</p>`);
-          time.nextElementSibling.classList.add("discount");
-          select.style.height = "160px"
-
-        } else {
-          time.textContent = "mo";
-          time.nextElementSibling.remove();
-          select.style.height = "130px" // هنا
-        }
-      });
-    });
-
+    selectPlan();
     if (e.target.classList.contains("next")) {
+     
       if (i < formStep.length) {
         // if (inputValidation()) {
         //   //function reurn true
         //   return;
         // }
         formStep[i].classList.add("hidden");
-      }
 
+      }
+      
       if (count < active.length) {
         active[count].classList.remove("active");
       }
+      
       count++;
       i++;
+      
       formStep[i].classList.remove("hidden");
       active[count].classList.add("active");
 
@@ -114,9 +155,7 @@ btnTarget.forEach((btn) => {
       if (count >= active.length) {
         count = 0;
       }
-      // if (btn.classList.contains("back")) {
-      //   btn.disabled = true;
-      // }
+///////////////////////////////////////
     }
   });
 });
