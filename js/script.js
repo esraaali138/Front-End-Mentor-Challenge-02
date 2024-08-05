@@ -9,7 +9,7 @@ let i = 0;
 function addToggleClass(element) {
   element.forEach((ele) => {
     ele.addEventListener("click", () => {
-      const parentElement = ele.parentElement;
+      const parentElement = ele.parentElement;      
       parentElement.classList.toggle("toggle");
     });
   });
@@ -28,19 +28,15 @@ function covertTimeToYear() {
   });
 }
 
-function selectValidation() {
-  let isSelected = true;
-  const selectPlan = document.querySelectorAll(
-    ".form-step-plan-options-option"
-  );
-  selectPlan.forEach((select) => {
-    select.addEventListener("click", () => {
-      if (!select.classList.contains("toggle")) {
-        isSelected = false;
-      }
-    });
-  });
+function selectValidation(selector) {
+  let isSelected = false;
 
+  selector.forEach((select) => {
+    if (select.classList.contains("toggle")) {
+      isSelected = true;
+
+    }
+  });
   return isSelected;
 }
 
@@ -114,22 +110,35 @@ function selectPlan() {
     });
   });
 }
+selectPlan();
 
 btnTarget.forEach((btn) => {
   btn.addEventListener("click", (e) => {
     e.preventDefault();
-
-    // if(selectValidation()){
-    //   alert("select plan");
-    //   return
-    // } /// هنا
-
-
     const formStep = document.querySelectorAll(".form-step");
     const active = document.querySelectorAll(".sidebar-content-step-number");
-    selectPlan();
     if (e.target.classList.contains("next")) {
-     
+      if (
+        i === 1 &&
+        !selectValidation(
+          document.querySelectorAll(".form-step-plan-options-option")
+        )
+      ) {
+        alert("you should select a plan");
+        return;
+      }
+      if (
+        i === 2 &&
+        !selectValidation(
+          document.querySelectorAll(
+            ".form-step-ons-addons"
+          )
+        )
+      ) {
+        alert("you should select a addons");
+        return;
+      }
+
       if (i < formStep.length) {
         // if (inputValidation()) {
         //   //function reurn true
@@ -137,25 +146,24 @@ btnTarget.forEach((btn) => {
         // }
         formStep[i].classList.add("hidden");
 
-      }
-      
-      if (count < active.length) {
-        active[count].classList.remove("active");
-      }
-      
-      count++;
-      i++;
-      
-      formStep[i].classList.remove("hidden");
-      active[count].classList.add("active");
+        if (count < active.length) {
+          active[count].classList.remove("active");
+        }
 
-      if (i > formStep.length) {
-        i = 0;
+        count++;
+        i++;
+
+        formStep[i].classList.remove("hidden");
+        active[count].classList.add("active");
+
+        if (i > formStep.length ) {
+          i = 0;
+        }
+        if (count > active.length) {
+          count = 0;
+        }
+        ///////////////////////////////////////
       }
-      if (count >= active.length) {
-        count = 0;
-      }
-///////////////////////////////////////
     }
   });
 });
