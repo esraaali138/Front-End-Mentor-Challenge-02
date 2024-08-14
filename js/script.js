@@ -9,7 +9,7 @@ let i = 0;
 function addToggleClass(element) {
   element.forEach((ele) => {
     ele.addEventListener("click", () => {
-      const parentElement = ele.parentElement;      
+      const parentElement = ele.parentElement;
       parentElement.classList.toggle("toggle");
     });
   });
@@ -28,13 +28,18 @@ function covertTimeToYear() {
   });
 }
 
+function change(element) {
+  let time = element.nextElementSibling.children[1];
+  time.innerHTML = `+$<span class="total">${10 + 12}</span>/yr`;
+}
+change(document.querySelector(".form-step-checkout-info"));
+
 function selectValidation(selector) {
   let isSelected = false;
 
   selector.forEach((select) => {
     if (select.classList.contains("toggle")) {
       isSelected = true;
-
     }
   });
   return isSelected;
@@ -84,29 +89,48 @@ function inputValidation() {
   return hasError; //will return true if haserror = true
 }
 
-function selectPlan() {
+function selectPlan(e) {
   const selectPlan = document.querySelectorAll(
     ".form-step-plan-options-option"
   );
+
   const checkboxInput = document.querySelector(".switch input");
 
   selectPlan.forEach((select) => {
-    select.addEventListener("click", () => {
-      select.classList.toggle("toggle");
-    });
-    const time = select.children[1].children[1].children[0];
+    const time = select.children[1].children[1];
     checkboxInput.addEventListener("change", () => {
+      const price = parseInt(
+        select.children[1].children[1].children[0].textContent
+      );
       if (checkboxInput.checked) {
-        time.textContent = "yr";
+        time.innerHTML = `$<span>${price * 10}</span>/yr`;
         time.insertAdjacentHTML("afterend", `<p>2 months free</p>`);
         time.nextElementSibling.classList.add("discount");
         select.style.height = "160px";
         covertTimeToYear();
+        document.querySelector(".long").textContent = " (Yearly)";
+        document.querySelector(".month").textContent = "Total (per year)";
+        change(document.querySelector(".form-step-checkout-info"));
       } else {
-        time.textContent = "mo";
+        time.innerHTML = `$<span>${price / 10}</span>/mo`;
         time.nextElementSibling.remove();
         select.style.height = "130px";
       }
+    });
+    select.addEventListener("click", () => {
+      select.classList.toggle("toggle");
+      const planName = select.children[1].children[0].textContent;
+      const planPrice = select.children[1].children[1].textContent;
+      document.querySelector(
+        ".form-step-checkout-info-one"
+      ).children[0].children[0].innerHTML = `${planName}<span class="long"> ${
+        document.querySelector(".long").textContent
+      }</span>`;
+      document.querySelector(
+        ".form-step-checkout-info-one"
+      ).children[0].nextElementSibling.innerHTML = `${planPrice}<span class="planPrice">${
+        document.querySelector(".planPrice").textContent
+      }</span>`;
     });
   });
 }
@@ -129,11 +153,7 @@ btnTarget.forEach((btn) => {
       }
       if (
         i === 2 &&
-        !selectValidation(
-          document.querySelectorAll(
-            ".form-step-ons-addons"
-          )
-        )
+        !selectValidation(document.querySelectorAll(".form-step-ons-addons"))
       ) {
         alert("you should select a addons");
         return;
@@ -156,7 +176,7 @@ btnTarget.forEach((btn) => {
         formStep[i].classList.remove("hidden");
         active[count].classList.add("active");
 
-        if (i > formStep.length ) {
+        if (i > formStep.length) {
           i = 0;
         }
         if (count > active.length) {
