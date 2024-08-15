@@ -6,27 +6,42 @@ const inputFields = document.querySelectorAll(".form-step-fields-input");
 let count = 0;
 let i = 0;
 
+function updateAddOns() {
+  const addonsInfoElements = document.querySelectorAll(
+    ".form-step-checkout-info-two, .form-step-checkout-info-three"
+  );
+
+  const checkboxinputs = document.querySelectorAll(
+    ".form-step-ons-addons input[type='checkbox']"
+  );
+
+  checkboxinputs.forEach((input, index) => {
+    const addonName = input.nextElementSibling.querySelector(".form-step-ons-addons-info-one");
+    const addonPrice = input.nextElementSibling.nextElementSibling.querySelector(".time").textContent;
+    if(addonName) {
+      var addonNameContent = addonName.textContent;
+    }
+
+    if (input.checked && addonsInfoElements[index]) {
+      addonsInfoElements[index].querySelector("span").textContent = addonNameContent;
+    }
+  });
+}
+
 function addToggleClass(element) {
   element.forEach((ele) => {
     ele.addEventListener("click", () => {
       const parentElement = ele.parentElement;
       parentElement.classList.toggle("toggle");
+      updateAddOns();
     });
+
   });
 }
 
 addToggleClass(
   document.querySelectorAll(".form-step-ons-addons input[type='checkbox']")
 );
-
-function covertTimeToYear() {
-  const stepAddonsTime = document.querySelectorAll(".time");
-  stepAddonsTime.forEach((step) => {
-    const parentElement = step.parentElement;
-    parentElement.innerHTML = `+$<span class="time">${(step.textContent =
-      parseInt(step.textContent) * 10)}</span>/yr`;
-  });
-}
 
 function change(element) {
   let time = element.nextElementSibling.children[1];
@@ -107,10 +122,21 @@ function selectPlan(e) {
         time.insertAdjacentHTML("afterend", `<p>2 months free</p>`);
         time.nextElementSibling.classList.add("discount");
         select.style.height = "160px";
-        covertTimeToYear();
         document.querySelector(".long").textContent = " (Yearly)";
         document.querySelector(".month").textContent = "Total (per year)";
         change(document.querySelector(".form-step-checkout-info"));
+
+        // second chosen
+
+        const stepAddonsTime = document.querySelectorAll(".time");
+
+        stepAddonsTime.forEach((step) => {
+          console.log(step);
+
+          const parentElement = step.parentElement;
+          parentElement.innerHTML = `+$<span class="time">${(step.textContent =
+            parseInt(step.textContent) * 10)}</span>/yr`;
+        });
       } else {
         time.innerHTML = `$<span>${price / 10}</span>/mo`;
         time.nextElementSibling.remove();
