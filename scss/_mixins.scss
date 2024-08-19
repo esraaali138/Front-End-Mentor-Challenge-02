@@ -18,3 +18,9 @@ align-items: $align;
     font-size: $size;
     font-weight: $weight;
 }
+
+@mixin respond-to ($screenSize) {
+    @if $screenSize == phone {
+        @media (max-width : 600px) {@content}
+    }
+}

@@ -6,7 +6,7 @@
 
 body {
   margin: 0;
-  background: hsl(231, 100%, 99%);
+  background: hsl(225, 14%, 95%);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -103,7 +103,7 @@ input:checked + .slider:before {
 
 .toggle {
   border: 1px solid hsl(243, 100%, 70%) !important;
-  background: hsl(231, 100%, 99%);
+  background: hsl(225, 14%, 95%);
 }
 
 .back:disabled {
@@ -122,7 +122,7 @@ input:checked + .slider:before {
   background: hsl(0, 0%, 100%);
   font-family: Ubuntu;
   width: 800px;
-  height: 480px;
+  height: auto;
   border-radius: 10px;
   color: white;
   padding: 10px;
@@ -130,6 +130,18 @@ input:checked + .slider:before {
   flex-direction: row;
   justify-content: space-between;
   align-items: stretch;
+}
+@media (max-width: 600px) {
+  .main {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    position: relative;
+    background: hsl(225, 14%, 95%);
+    height: 600px;
+    overflow-x: hidden;
+  }
 }
 .main .sidebar {
   background: url("../assets/images/bg-sidebar-desktop.svg") no-repeat;
@@ -140,6 +152,17 @@ input:checked + .slider:before {
   color: white;
   padding: 20px;
 }
+@media (max-width: 600px) {
+  .main .sidebar {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    color: white;
+    background-color: rgb(36, 33, 33);
+    position: absolute;
+    top: 0;
+  }
+}
 .main .sidebar-content {
   margin-top: 10px;
   display: flex;
@@ -147,6 +170,12 @@ input:checked + .slider:before {
   justify-content: center;
   align-items: stretch;
   gap: 20px;
+}
+@media (max-width: 600px) {
+  .main .sidebar-content {
+    flex-direction: row;
+    padding: 10px;
+  }
 }
 .main .sidebar-content-step {
   display: flex;
@@ -172,6 +201,11 @@ input:checked + .slider:before {
   align-items: stretch;
   gap: 2px;
 }
+@media (max-width: 600px) {
+  .main .sidebar-content-step-description {
+    display: none;
+  }
+}
 .main .sidebar-content-step-description-title {
   color: hsl(231, 11%, 63%);
   font-size: 12px;
@@ -184,8 +218,24 @@ input:checked + .slider:before {
 .main .form {
   width: 62%;
 }
+@media (max-width: 600px) {
+  .main .form {
+    background-color: #ffffff;
+    width: 100%;
+    border-radius: 8px;
+    position: relative;
+    top: 100px;
+    height: 350px;
+  }
+}
 .main .form-step {
   margin-top: 35px;
+}
+@media (max-width: 600px) {
+  .main .form-step {
+    width: 85%;
+    margin: 20px auto;
+  }
 }
 .main .form-step-header {
   color: hsl(213, 96%, 18%);
@@ -195,6 +245,11 @@ input:checked + .slider:before {
   margin-top: 8px;
   font-size: 14.4px;
 }
+@media (max-width: 600px) {
+  .main .form-step-title {
+    width: 70%;
+  }
+}
 .main .form-step-fields {
   display: flex;
   flex-direction: column;
@@ -203,6 +258,11 @@ input:checked + .slider:before {
   gap: 10px;
   margin-top: 30px;
 }
+@media (max-width: 600px) {
+  .main .form-step-fields {
+    margin: 0;
+  }
+}
 .main .form-step-fields-container {
   width: 82%;
   display: flex;
@@ -210,6 +270,11 @@ input:checked + .slider:before {
   justify-content: space-between;
   align-items: center;
   gap: 0px;
+}
+@media (max-width: 600px) {
+  .main .form-step-fields-container {
+    width: 100%;
+  }
 }
 .main .form-step-fields-container-label {
   color: hsl(213, 96%, 18%);
@@ -230,6 +295,12 @@ input:checked + .slider:before {
   padding: 10px;
   font-weight: bold;
 }
+@media (max-width: 600px) {
+  .main .form-step-fields-input {
+    width: 100%;
+    border-radius: 4px;
+  }
+}
 .main .form-step-fields-btn {
   margin-top: 30px;
   width: 397px;
@@ -237,6 +308,13 @@ input:checked + .slider:before {
   flex-direction: row;
   justify-content: flex-end;
   align-items: stretch;
+}
+@media (max-width: 600px) {
+  .main .form-step-fields-btn {
+    position: relative;
+    top: 70px;
+    left: 30px;
+  }
 }
 .main .form-step-plan {
   width: 400px;

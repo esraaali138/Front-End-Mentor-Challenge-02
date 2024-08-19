@@ -6,17 +6,39 @@
 .main {
   background: $mainColor;
   font-family: Ubuntu;
-  @include layout(800px, 480px, 10px);
+  @include respond-to(phone) {
+    @include flexbox(null, column, space-between);
+    position: relative;
+    background: $colorBody;
+    height: 600px;
+    overflow-x: hidden
+
+  }
+  @include layout(800px, auto, 10px);
   padding: 10px;
   @include flexbox(null, row, space-between);
+
+  // sidebar
   .sidebar {
+    @include respond-to(phone) {
+      @include layout(100%, 200px, 8px);
+      background-color: rgb(36, 33, 33);
+      position: absolute;
+      top: 0;
+    }
     background: $sidebarImg no-repeat;
     background-size: contain;
     @include layout(32%, 455px, 8px);
     padding: 20px;
+
     &-content {
+      @include respond-to(phone) {
+        flex-direction: row;
+        padding: 10px;
+      }
       margin-top: 10px;
       @include flexbox(20px, column, center);
+
       &-step {
         @include flexbox(10px);
         &-number {
@@ -26,6 +48,9 @@
           text-align: center;
         }
         &-description {
+          @include respond-to(phone) {
+            display: none;
+          }
           text-transform: uppercase;
           @include flexbox(2px, column);
           &-title {
@@ -40,9 +65,24 @@
       }
     }
   }
+  // form
   .form {
+    @include respond-to(phone) {
+      background-color: #ffffff;
+      width: 100%;
+      border-radius: 8px;
+      position: relative;
+      top: 100px;
+      height: 350px;
+
+    }
+
     width: 62%;
     &-step {
+      @include respond-to(phone) {
+        width: 85%;
+        margin: 20px auto;
+      }
       margin-top: 35px;
       &-header {
         color: $primary;
@@ -51,13 +91,22 @@
         color: $titleColor;
         margin-top: 8px;
         font-size: 14.4px;
+        @include respond-to(phone) {
+          width: 70%;
+        }
       }
 
       &-fields {
+        @include respond-to(phone) {
+          margin: 0;
+        }
         @include flexbox(10px, column);
         margin-top: 30px;
 
         &-container {
+          @include respond-to(phone) {
+            width: 100%;
+          }
           width: 82%;
           @include flexbox(0px, row, space-between, center);
           &-label {
@@ -70,8 +119,11 @@
             font-weight: 500;
           }
         }
-
         &-input {
+          @include respond-to(phone) {
+            width: 100%;
+            border-radius: 4px;
+          }
           @include layout(82%, inherit, 8px, $primary);
           outline: 0;
           border: 1px solid $inputColor;
@@ -79,6 +131,12 @@
           font-weight: bold;
         }
         &-btn {
+          @include respond-to(phone) {
+            position: relative;
+            top: 70px;
+            left: 30px;
+          }
+
           margin-top: 30px;
           width: 397px;
           @include flexbox(null, row, flex-end);

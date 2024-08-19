@@ -17,7 +17,7 @@ function updateAddOns() {
 
   checkboxinputs.forEach((input, index) => {
     const addonName = input.nextElementSibling.querySelector(".form-step-ons-addons-info-one");
-    const addonPrice = input.nextElementSibling.nextElementSibling.querySelector(".time").textContent;
+    const addonPrice = input.nextElementSibling.nextElementSibling.querySelector(".time").textContent; // here ////
     if(addonName) {
       var addonNameContent = addonName.textContent;
     }
@@ -186,10 +186,10 @@ btnTarget.forEach((btn) => {
       }
 
       if (i < formStep.length) {
-        // if (inputValidation()) {
-        //   //function reurn true
-        //   return;
-        // }
+        if (inputValidation()) {
+          //function reurn true
+          return;
+        }
         formStep[i].classList.add("hidden");
 
         if (count < active.length) {
