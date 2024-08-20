@@ -186,10 +186,10 @@ btnTarget.forEach((btn) => {
       }
 
       if (i < formStep.length) {
-        if (inputValidation()) {
-          //function reurn true
-          return;
-        }
+        // if (inputValidation()) {
+        //   //function reurn true
+        //   return;
+        // }
         formStep[i].classList.add("hidden");
 
         if (count < active.length) {

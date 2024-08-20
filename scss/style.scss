@@ -11,8 +11,7 @@
     position: relative;
     background: $colorBody;
     height: 600px;
-    overflow-x: hidden
-
+    overflow-x: hidden;
   }
   @include layout(800px, auto, 10px);
   padding: 10px;
@@ -21,10 +20,11 @@
   // sidebar
   .sidebar {
     @include respond-to(phone) {
-      @include layout(100%, 200px, 8px);
-      background-color: rgb(36, 33, 33);
+      @include layout(100%, 200px, 0px);
       position: absolute;
       top: 0;
+      left: 0;
+      background-size: cover; // استخدام contain بدلاً من cover على الشاشات الصغيرة
     }
     background: $sidebarImg no-repeat;
     background-size: contain;
@@ -73,8 +73,7 @@
       border-radius: 8px;
       position: relative;
       top: 100px;
-      height: 350px;
-
+      height: 370px;
     }
 
     width: 62%;
@@ -92,7 +91,7 @@
         margin-top: 8px;
         font-size: 14.4px;
         @include respond-to(phone) {
-          width: 70%;
+          width: 60%;
         }
       }
 
@@ -133,8 +132,7 @@
         &-btn {
           @include respond-to(phone) {
             position: relative;
-            top: 70px;
-            left: 30px;
+            top: 50px;
           }
 
           margin-top: 30px;
@@ -142,17 +140,39 @@
           @include flexbox(null, row, flex-end);
         }
       }
+
+      // plan 1
       &-plan {
         width: 400px;
+        @include respond-to(phone) {
+          width: 100%;
+        }
         &-options {
+          @include respond-to(phone) {
+            @include flexbox(0, column);
+          }
+
           @include flexbox(20px, row);
           &-option {
+            @include respond-to(phone) {
+              @include flexbox(10px, row);
+
+              @include layout(100%, 60px, 10px);
+              align-items: center;
+              margin-top: 10px;
+              padding: 10px;
+            }
+
             @include layout(120px, 130px, 10px);
             border: 1px solid $inputColor;
             margin-top: 30px;
             padding: 10px;
             cursor: pointer;
+
             &-info {
+              @include respond-to(phone) {
+                margin: 0;
+              }
               margin-top: 20px;
               padding: 10px 0;
               @include flexbox(4px, column);
@@ -166,7 +186,7 @@
             }
           }
         }
-
+        // input checkbox
         &-toggle {
           @include flexbox(24px, row, center);
           @include layout(400px, inherit, 8px);
@@ -174,21 +194,30 @@
           background: hsl(231, 100%, 98%);
           padding: 8px 0;
           line-height: 20px;
+          width: 100%;
           p {
             color: $primary;
             font-weight: 500;
           }
         }
         &-btns {
+          @include respond-to(phone) {
+            margin-top: 20px;
+          }
           margin-top: 45px;
           @include flexbox(null, row, space-between, center);
         }
       }
+      // add-ons
       &-ons {
         @include flexbox(0px, column);
         &-addons {
           border: 1px solid $inputColor;
           @include layout(82%, inherit, 8px);
+          @include respond-to(phone) {
+            width: 100%;
+            margin-top: 10px;
+          }
           @include flexbox(2px, row, space-between, center);
           cursor: pointer;
           padding: 16px;
@@ -215,20 +244,27 @@
           }
         }
         &-btns {
+          @include respond-to(phone) {
+            margin-top: 60px;
+          }
           width: 395px;
           margin-top: 38px;
           padding: 10px 0;
           @include flexbox(0px, row, space-between, center);
         }
       }
-
+      // Finishing
       &-checkout {
         margin-top: 26px;
         &-info {
+          @include respond-to(phone) {
+            width: 100%;
+          }
           background: hsl(231, 100%, 99%);
           padding: 18px;
           @include flexbox(10px, column);
           @include layout(82%, inherit, 8px);
+
           hr {
             border: 1px solid hsl(240, 6%, 90%);
           }
@@ -274,6 +310,9 @@
         }
       }
       &-submitted {
+        @include respond-to(phone) {
+          width: 100%;
+        }
         padding: 10px;
         text-align: center;
         @include layout(450px, 450px, 0);
